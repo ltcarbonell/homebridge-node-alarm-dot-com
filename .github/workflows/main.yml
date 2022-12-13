@@ -26,5 +26,5 @@ jobs:
       - name: set milestone
         uses: zoispag/action-assign-milestone@v2
         with:
-          repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          repo-token: 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
           milestone: ${{ env.app_version }}
