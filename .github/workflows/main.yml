@@ -24,7 +24,7 @@ jobs:
           echo "app_version=$(./scripts/app_version.rb)" >> $GITHUB_ENV
 
       - name: set milestone
-        uses: zoispag/action-assign-milestone@v2
+      - uses: zoispag/action-assign-milestone@v1
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           milestone: "${{ env.app_version }}"
