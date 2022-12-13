@@ -1,30 +1,15 @@
-name: Assign Milestone
+name: 'Auto Milestone Assign'
 
 on:
   pull_request:
-    types: [opened, reopened]
-  pull_request_target:
-    types: [opened, reopened]
+    types: [opened]
 
 jobs:
   assign-milestone:
-    runs-on: macos-12
+    runs-on: ubuntu-latest
+
     steps:
-      - name: git checkout
-        uses: actions/checkout@v3
-
-      - name: ruby setup
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.0
-          bundler-cache: true
-
-      - name: set env variables
-        run: |
-          echo "app_version=$(./scripts/app_version.rb)" >> $GITHUB_ENV
-
-      - name: set milestone
       - uses: zoispag/action-assign-milestone@v1
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          milestone: "${{ env.app_version }}"
+          milestone: 'roadmap'
